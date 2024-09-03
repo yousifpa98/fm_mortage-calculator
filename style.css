@@ -8,7 +8,7 @@
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
-  background-color: hsl(202, 86%, 94%);
+  background-color: hsl(199, 81%, 94%);
 }
 
 a {
@@ -30,8 +30,13 @@ a {
   align-items: center;
 }
 
+.calc-content {
+  background-color: white;
+  height: fit-content;
+}
+
 .calc-container {
-  height: 100vh;
+  height: fit-content;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -65,7 +70,8 @@ a {
   position: relative;
 }
 
-.calc-form label:not(.radio-container label) {
+.input-group label,
+.calc-form > label:not(.radio-container label) {
   color: gray;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -75,9 +81,20 @@ a {
   position: relative;
   width: 100%;
   margin-bottom: 2rem;
+  height: fit-content;
 }
 
-.input-container input[type="number"] {
+.input-group {
+  width: 100%;
+  height: fit-content;
+}
+
+.small-input {
+  width: 100%;
+}
+
+.input-container input[type="number"],
+.input-container div .input-container input[type="number"] {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid hsl(223, 47%, 23%);
@@ -85,6 +102,15 @@ a {
   font-size: 1.2rem;
   font-weight: bold;
   padding-left: 2.5rem;
+}
+
+.input-container input[type="number"]:focus {
+  outline: none;
+  border: 1px solid hsl(60, 70%, 52%);
+}
+
+.input-container input[type="number"]:focus + .input-label {
+  background-color: hsl(60, 70%, 52%);
 }
 
 #mortTerm,
@@ -135,6 +161,38 @@ a {
   height: 100%;
 }
 
+/* Custom radio button styling */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid hsl(223, 47%, 23%);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Style the radio button when checked */
+input[type="radio"]:checked {
+  border: 2px solid hsl(60, 70%, 52%);
+  border-color: hsl(60, 70%, 52%);
+}
+
+/* Create the inner dot when checked */
+input[type="radio"]:checked::before {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: hsl(60, 70%, 52%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .calc-form button[type="submit"] {
   width: 100%;
   padding: 1rem;
@@ -147,7 +205,8 @@ a {
   font-size: 1.2rem;
   font-weight: bold;
   border: none;
-  background-color: hsl(202, 55%, 16%);
+  background-color: hsl(60, 70%, 52%);
+  cursor: pointer;
 }
 
 .calc-form button[type="submit"] img {
@@ -156,5 +215,169 @@ a {
   margin-right: 1rem;
 }
 
-.calc-form button[type="submit"]:hover {
+.result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: hsl(202, 54%, 16%);
 }
+
+.empty-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.empty-results p {
+  color: hsl(203, 41%, 72%);
+  margin-top: 1rem;
+}
+
+.completed-results {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+  width: 100%;
+  color: white;
+}
+
+.completed-results p {
+  color: hsl(203, 41%, 72%);
+  margin-top: 1rem;
+}
+
+.result {
+  background-color: hsl(202, 56%, 12%);
+  padding: 1.5rem 1rem;
+  align-self: center;
+  margin-top: 1rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border-top: 3px solid yellow;
+  color: hsl(203, 41%, 72%);
+}
+
+.result h3 {
+  font-weight: 500;
+  color: hsl(203, 41%, 72%);
+}
+
+.result hr {
+  margin-bottom: 1rem;
+  color: hsl(203, 41%, 72%);
+}
+
+#monthlyPay {
+  font-size: 3rem;
+  font-weight: bold;
+  color: yellow;
+  margin-bottom: 1rem;
+}
+
+#totalRepay {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+@media screen and (min-width: 480px) {
+  #calculator {
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  .calc-container {
+    border-radius: 2rem 2rem 0 0;
+    height: fit-content;
+    padding-bottom: 5rem;
+  }
+
+  .result-container {
+    border-radius: 4rem 4rem 2rem 2rem;
+    margin-top: -5rem;
+    box-shadow: 0 -5px 5px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .empty-results,
+  .completed-results {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #calculator {
+    width: 70%;
+    margin: 1rem auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #calculator {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .calc-container {
+    width: 55%;
+    border-radius: 2rem 0 0 2rem;
+    padding: 1rem 4rem;
+    padding-right: 6rem;
+    height: 80vh;
+  }
+
+  .result-container {
+    width: 45%;
+    border-radius: 0 2rem 2rem 4rem;
+    margin-top: 0;
+    margin-left: -4rem;
+    box-shadow: -5px 0 5px 0 rgba(0, 0, 0, 0.1);
+    height: 80vh;
+  }
+
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .small-input {
+    width: 48%;
+  }
+
+  .radio-container {
+    margin-bottom: 0.25rem;
+  }
+
+  .calc-form button[type="submit"] {
+    width: 90%;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #calculator {
+    width: 80%;
+  }
+
+  .calc-container {
+    width: 60%;
+  }
+
+  .result-container {
+    width: 40%;
+  }
+}
+
+

@@ -30,33 +30,33 @@
                 type="number"
                 name="mortAmount"
                 id="mortAmount"
-                placeholder="Enter amount"
               />
               <div class="input-label left-label curr">$</div>
             </div>
-
-            <label for="mortTerm">Mortgage Term</label>
-            <div class="input-container">
-              <input
-                type="number"
-                name="mortTerm"
-                id="mortTerm"
-                placeholder="Enter term"
-              />
-              <div class="input-label right-label">years</div>
+            <div class="input-group">
+              <div class="small-input">
+                <label for="mortTerm">Mortgage Term</label>
+                <div class="input-container">
+                  <input
+                    type="number"
+                    name="mortTerm"
+                    id="mortTerm"
+                  />
+                  <div class="input-label right-label">years</div>
+                </div>
+              </div>
+              <div class="small-input">
+                <label for="interestRate">Interest Rate</label>
+                <div class="input-container">
+                  <input
+                    type="number"
+                    name="interestRate"
+                    id="interestRate"
+                  />
+                  <div class="input-label right-label">%</div>
+                </div>
+              </div>
             </div>
-
-            <label for="interestRate">Interest Rate</label>
-            <div class="input-container">
-              <input
-                type="number"
-                name="interestRate"
-                id="interestRate"
-                placeholder="Enter rate"
-              />
-              <div class="input-label right-label">%</div>
-            </div>
-
             <label for="mortType">Mortgage Type</label>
             <div class="radio-container">
               <input type="radio" name="mortTypeRadio" id="repayment" />
@@ -66,7 +66,7 @@
               <input type="radio" name="mortTypeRadio" id="interestOnly" />
               <label for="interestOnly">Interest Only</label>
             </div>
-            <button type="submit">
+            <button type="submit" id="submit">
               <img
                 src="./assets/images/icon-calculator.svg"
                 alt="Calculator Icon"
@@ -75,35 +75,41 @@
             </button>
           </form>
         </div>
+        <div class="result-container">
+          <div class="empty-results">
+            <img
+              src="./assets/images/illustration-empty.svg"
+              alt="form illustration"
+            />
+            <h2>Results shown here</h2>
+            <p>
+              Complete the form and click “calculate repayments” to see what
+              your monthly repayments would be.
+            </p>
+          </div>
+          <div class="completed-results">
+            <h2>Your results</h2>
+            <p>
+              Your results are shown below based on the information you
+              provided. To adjust the results, edit the form and click
+              “calculate repayments” again.
+            </p>
+            <div class="result">
+              <h3>Your monthly repayments</h3>
+              <p id="monthlyPay">$0.00</p>
+              <hr />
+              <h3>Total you'll repay over the term</h3>
+              <p id="totalRepay">$0.00</p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
-
-    <!-- Empty results start -->
-
-    <!--   Results shown here
-
-  Complete the form and click “calculate repayments” to see what 
-  your monthly repayments would be. -->
-
-    <!-- Empty results end -->
-
-    <!-- Completed results start -->
-
-    <!--   Your results
-
-  Your results are shown below based on the information you provided. 
-  To adjust the results, edit the form and click “calculate repayments” again.
-
-  Your monthly repayments
-
-  Total you'll repay over the term -->
-
-    <!-- Completed results end -->
-
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
+      Coded by <a href="#">Yousif Paulus</a>.
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
