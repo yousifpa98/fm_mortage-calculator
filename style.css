@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: hsl(202, 86%, 94%);
+}
+
+a {
+  text-decoration: none;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calc-container {
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.calc-title {
+  width: 100%;
+}
+
+.calc-title h1 {
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+  color: hsl(223, 47%, 23%);
+}
+
+.calc-title a {
+  color: gray;
+  text-decoration: underline;
+}
+
+.calc-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.calc-form label:not(.radio-container label) {
+  color: gray;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.input-container input[type="number"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid hsl(223, 47%, 23%);
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-left: 2.5rem;
+}
+
+#mortTerm,
+#interestRate {
+  padding-left: 1rem;
+  padding-right: 2.5rem;
+}
+
+.input-label {
+  position: absolute;
+  padding: calc(0.75rem - 1px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: gray;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.left-label {
+  left: 1px;
+  background-color: hsl(202, 86%, 94%);
+  border-radius: 5px 0 0 5px;
+}
+
+.right-label {
+  right: 1px;
+  background-color: hsl(202, 86%, 94%);
+  border-radius: 0 5px 5px 0;
+}
+
+.radio-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 1px solid hsl(223, 47%, 23%);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.radio-container label {
+  color: hsl(223, 47%, 23%);
+  font-weight: bold;
+  font-size: 1.2rem;
+  height: 100%;
+}
+
+.calc-form button[type="submit"] {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 3rem;
+  color: hsl(223, 47%, 23%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  background-color: hsl(202, 55%, 16%);
+}
+
+.calc-form button[type="submit"] img {
+  width: 1.8rem;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.calc-form button[type="submit"]:hover {
+}
